@@ -1,36 +1,58 @@
-txt = input("zadej text: ")
-typ = input("vyber šifru:\n============\n[M]orseovka\n[B]raillovo písmo\n")
+"morse": {
+    # Letters A-Z
+    "A": ".-", "B": "-...", "C": "-.-.", "D": "-..", "E": ".",
+    "F": "..-.", "G": "--.", "H": "....", "I": "..", "J": ".---",
+    "K": "-.-", "L": ".-..", "M": "--", "N": "-.", "O": "---",
+    "P": ".--.", "Q": "--.-", "R": ".-.", "S": "...", "T": "-",
+    "U": "..-", "V": "...-", "W": ".--", "X": "-..-", "Y": "-.--",
+    "Z": "--..",
 
-if typ == "m" or typ == "M":
-    print("morse")
-if typ == "b" or typ == "B":
-    print("braille")
-else:
-    print("chyba!")
+    # Numbers 0-9
+    "0": "-----", "1": ".----", "2": "..---", "3": "...--",
+    "4": "....-", "5": ".....", "6": "-....", "7": "--...",
+    "8": "---..", "9": "----.",
 
-a = dict(morse = ".-", braille = "")
-b = dict(morse = "-...", braille = "")
-c = dict(morse = "", braille = "")
-d = dict(morse = "", braille = "")
-e = dict(morse = "", braille = "")
-f = dict(morse = "", braille = "")
-g = dict(morse = "", braille = "")
-h = dict(morse = "", braille = "")
-i = dict(morse = "", braille = "")
-j = dict(morse = "", braille = "")
-k = dict(morse = "", braille = "")
-l = dict(morse = "", braille = "")
-m = dict(morse = "", braille = "")
-n = dict(morse = "", braille = "")
-o = dict(morse = "", braille = "")
-p = dict(morse = "", braille = "")
-q = dict(morse = "", braille = "")
-r = dict(morse = "", braille = "")
-s = dict(morse = "", braille = "")
-t = dict(morse = "", braille = "")
-u = dict(morse = "", braille = "")
-v = dict(morse = "", braille = "")
-w = dict(morse = "", braille = "")
-x = dict(morse = "", braille = "")
-y = dict(morse = "", braille = "")
-z = dict(morse = "", braille = "")
+    # Punctuation
+    ".": ".-.-.-", ",": "--..--", "?": "..--..", "'": ".----.",
+    "!": "-.-.--", "/": "-..-.", "(": "-.--.", ")": "-.--.-",
+    "&": ".-...", ":": "---...", ";": "-.-.-.", "=": "-...-",
+    "+": ".-.-.", "-": "-....-", "_": "..--.-", "\"": ".-..-.",
+    "$": "...-..-", "@": ".--.-.", " ": "/"
+    },
+
+    "braille": {
+    # Letters A-Z (Unicode Braille patterns)
+    "A": "⠁", "B": "⠃", "C": "⠉", "D": "⠙", "E": "⠑",
+    "F": "⠋", "G": "⠛", "H": "⠓", "I": "⠊", "J": "⠚",
+    "K": "⠅", "L": "⠇", "M": "⠍", "N": "⠝", "O": "⠕",
+    "P": "⠏", "Q": "⠟", "R": "⠗", "S": "⠎", "T": "⠞",
+    "U": "⠥", "V": "⠧", "W": "⠺", "X": "⠭", "Y": "⠽",
+    "Z": "⠵",
+
+    # Numbers 0-9 (Braille numbers are prefixed with ⠼ in real Braille)
+    "0": "⠼⠚", "1": "⠼⠁", "2": "⠼⠃", "3": "⠼⠉", "4": "⠼⠙",
+    "5": "⠼⠑", "6": "⠼⠋", "7": "⠼⠛", "8": "⠼⠓", "9": "⠼⠊",
+
+    # Punctuation
+    ".": "⠲", ",": "⠂", "?": "⠦", "'": "⠄", "!": "⠖",
+    "/": "⠌", "(": "⠶", ")": "⠶", "&": "⠈⠯", ":": "⠒",
+    ";": "⠆", "=": "⠐⠶", "+": "⠐⠖", "-": "⠤", "_": "⠸⠲",
+    "\"": "⠐⠂", "$": "⠈⠎", "@": "⠈⠁", " ": " "
+    }
+}
+
+enc_type = input("do čeho chceš text převést?"
+                 "\n- [M]orseovka"
+                 "\n- [B]raillovo písmo"
+                 "\n ")
+
+text = input("zadej text který chceš převést (bez diakritiky)")
+
+if enc_type.upper() == "M":
+    to_morse = True
+    to_braille = False
+elif enc_type.upper() = "B"
+    to_morse = False
+    to_braille = True
+
+text
